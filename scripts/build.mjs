@@ -185,17 +185,22 @@ function img(src, alt, { w, h, cls = "", eager = false } = {}) {
   return `<img src="/assets/img/${src}" alt="${esc(alt)}"${w ? ` width="${w}" height="${h}"` : ""}${cls ? ` class="${cls}"` : ""} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
 }
 
-function serviceList(list = SERVICES) {
-  return `<ul class="service-list">${list.map((s) => `
-          <li class="tone-${s.tone}"><a href="/diensten/${s.slug}">
-            <span class="sl-name">${s.name}</span>
-            <span class="sl-sum">${s.summary}</span>
-            <span class="sl-arrow" aria-hidden="true">→</span>
-          </a></li>`).join("")}
-        </ul>`;
+function serviceCards(list = SERVICES, { help = true } = {}) {
+  const cards = list.map((s) => `
+          <a class="card service-card tone-${s.tone}" href="/diensten/${s.slug}">
+            <h3>${s.name}</h3>
+            <p>${s.summary}</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>`).join("");
+  const helpCard = help ? `
+          <a class="card service-card help-card" href="/contact">
+            <h3>Twijfelt u?</h3>
+            <p>Beschrijf uw project, dan adviseren wij welke meting u nodig heeft.</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>` : "";
+  return `<div class="grid grid-services">${cards}${helpCard}
+        </div>`;
 }
-
-const helpLine = `<p class="help-line">Twijfelt u welke meting u nodig heeft? Bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a> of <a href="/contact">vraag advies</a>.</p>`;
 
 function projectCard(p, { headingLevel = 3 } = {}) {
   const s = service(p.service);
@@ -252,8 +257,7 @@ page({
           <h2>Wat wij voor u meten</h2>
           <p>Kies de dienst die bij uw project past.</p>
         </div>
-        ${serviceList()}
-        ${helpLine}
+        ${serviceCards()}
       </div>
     </section>
 
@@ -319,8 +323,7 @@ page({
     </section>
     <section class="section section-flush-top">
       <div class="wrap">
-        ${serviceList()}
-        ${helpLine}
+        ${serviceCards()}
       </div>
     </section>
 ${ctaBand()}`,
@@ -329,14 +332,12 @@ ${ctaBand()}`,
 /* ---------- Dienstpagina's ---------- */
 for (const s of SERVICES) {
   const steps = s.steps ? `
-    <section class="section section-tint">
-      <div class="wrap stack">
-        <h2>Zo pakken wij het aan</h2>
-        <ol class="steps steps-row">${s.steps.map(([t, d], i) => `
-          <li><span class="step-n">${i + 1}</span><div><h3>${t}</h3><p>${d}</p></div></li>`).join("")}
-        </ol>
-      </div>
-    </section>` : "";
+          <div class="card info-box">
+            <h2 class="h-small">Zo pakken wij het aan</h2>
+            <ol class="steps">${s.steps.map(([t, d], i) => `
+              <li><span class="step-n">${i + 1}</span><div><h3>${t}</h3><p>${d}</p></div></li>`).join("")}
+            </ol>
+          </div>` : "";
 
   page({
     path: `/diensten/${s.slug}`,
@@ -356,38 +357,40 @@ for (const s of SERVICES) {
     }],
     body: `
     <section class="page-head tone-${s.tone}">
-      <div class="wrap split split-aside">
-        <div class="stack">
-          <h1>${s.name}</h1>
-          <p class="lead">${s.summary}</p>
-        </div>
-        <div class="card quote-box">
-          <h2 class="h-small">Offerte aanvragen</h2>
-          <p>Stuur ons de tekening of een omschrijving van uw project.</p>
-          <a class="btn" href="/contact?onderwerp=${encodeURIComponent(s.name)}">Offerte aanvragen</a>
-          <p class="small">Of bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a></p>
-        </div>
+      <div class="wrap stack">
+        <p class="eyebrow">Dienst</p>
+        <h1>${s.name}</h1>
+        <p class="lead">${s.what}</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap grid grid-3 tone-${s.tone}">
-        <div class="stack">
-          <h2 class="h-small">Wat is het?</h2>
-          <p>${s.what}</p>
+      <div class="wrap split split-aside">
+        <div class="stack stack-boxes tone-${s.tone}">
+          <div class="grid grid-2">
+            <div class="card info-box">
+              <h2 class="h-small">Wanneer heeft u het nodig?</h2>
+              <ul class="checks">${s.when.map((l) => `<li>${l}</li>`).join("")}</ul>
+            </div>
+            <div class="card info-box">
+              <h2 class="h-small">Wat krijgt u?</h2>
+              <ul class="checks">${s.result.map((l) => `<li>${l}</li>`).join("")}</ul>
+            </div>
+          </div>${steps}
         </div>
-        <div class="stack">
-          <h2 class="h-small">Wanneer heeft u het nodig?</h2>
-          <ul class="checks">${s.when.map((l) => `<li>${l}</li>`).join("")}</ul>
-        </div>
-        <div class="stack">
-          <h2 class="h-small">Wat krijgt u?</h2>
-          <ul class="checks">${s.result.map((l) => `<li>${l}</li>`).join("")}</ul>
-        </div>
+        <aside class="stack">
+          <figure class="aside-img${s.imageContain ? " contain" : ""}">${img(s.image, s.imageAlt)}</figure>
+          <div class="card quote-box tone-${s.tone}">
+            <h2 class="h-small">Offerte aanvragen</h2>
+            <p>Stuur ons de tekening of een omschrijving van uw project.</p>
+            <a class="btn" href="/contact?onderwerp=${encodeURIComponent(s.name)}">Offerte aanvragen</a>
+            <p class="small">Of bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a></p>
+          </div>
+        </aside>
       </div>
     </section>
-${steps}
-    <section class="section">
+
+    <section class="section section-tint">
       <div class="wrap">
         <div class="section-head"><h2>${s.projects.length > 1 ? "Projecten" : "Project"}</h2></div>
         <div class="grid grid-2">
@@ -396,10 +399,10 @@ ${steps}
       </div>
     </section>
 
-    <section class="section section-tint">
+    <section class="section">
       <div class="wrap">
         <div class="section-head"><h2>Andere diensten</h2></div>
-        ${serviceList(SERVICES.filter((o) => o.slug !== s.slug))}
+        ${serviceCards(SERVICES.filter((o) => o.slug !== s.slug), { help: false })}
       </div>
     </section>`,
   });
