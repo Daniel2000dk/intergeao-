@@ -1,11 +1,15 @@
 // Genereert alle HTML-pagina's, sitemap.xml en robots.txt in de projectmap.
 // Gebruik: node scripts/build.mjs
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITE, SERVICES, PROJECTS, CLIENTS } from "./content.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+// Versiecode op CSS/JS, zodat browsers na een wijziging direct de nieuwe versie laden
+const ver = (p) => createHash("md5").update(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", p))).digest("hex").slice(0, 8);
+const CSS_V = ver("assets/css/style.css"), JS_V = ver("assets/js/main.js");
 const TODAY = new Date().toISOString().slice(0, 10);
 const written = [];
 
@@ -159,7 +163,7 @@ function page({ path, file, title, description, body, crumbs = [["Home", "/"]], 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..850&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=${CSS_V}">
   ${ld}
 </head>
 <body>
@@ -170,7 +174,7 @@ function page({ path, file, title, description, body, crumbs = [["Home", "/"]], 
 ${body}
   </main>
   ${footer()}
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=${JS_V}" defer></script>
 </body>
 </html>
 `;
