@@ -21,12 +21,11 @@ const PUBLIC = ["assets", "diensten", ".htaccess", "_redirects", "robots.txt", "
 for (const f of readdirSync(ROOT)) if (f.endsWith(".html")) PUBLIC.push(f);
 for (const f of PUBLIC) cpSync(join(ROOT, f), join(SITE_DIR, f), { recursive: true });
 
-// Zip (Windows: PowerShell, anders: zip)
+// Zip met gewone schuine strepen (werkt op Linux-servers). Windows 10+ heeft bsdtar ingebouwd.
 const zip = join(OUT, "intergeo-website.zip");
 rmSync(zip, { force: true });
 if (process.platform === "win32") {
-  execFileSync("powershell.exe", ["-NoProfile", "-Command",
-    `Compress-Archive -Path '${SITE_DIR}\\*','${SITE_DIR}\\.htaccess' -DestinationPath '${zip}' -Force`], { stdio: "inherit" });
+  execFileSync("C:\\Windows\\System32\\tar.exe", ["-a", "-c", "-f", zip, ...readdirSync(SITE_DIR)], { cwd: SITE_DIR, stdio: "inherit" });
 } else {
   execFileSync("zip", ["-qr", zip, "."], { cwd: SITE_DIR, stdio: "inherit" });
 }
