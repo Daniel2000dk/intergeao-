@@ -507,3 +507,70 @@ h3 { font-size: var(--step-1); font-weight: 700; font-stretch: 100%; }
 .split > *, .services > *, .projects > *, .steps > *, .facts-grid > *, .field-row > * { min-width: 0; }
 h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; }
 .eyebrow { overflow-wrap: anywhere; }
+
+/* ---------- Project photos (archive images, kept small and framed) ---------- */
+.project-img {
+  margin: -24px -24px 4px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--paper-tint);
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.project-img img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+}
+.project-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px;
+  padding: 0;
+  overflow: hidden;
+}
+.project-wide .project-img {
+  margin: 0;
+  aspect-ratio: auto;
+  min-height: 280px;
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+.project-body { display: flex; flex-direction: column; gap: 12px; padding: 28px 28px 28px 0; }
+.project-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; padding-top: 6px; }
+.project-thumbs img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: 2px; filter: saturate(0.85);
+}
+@media (max-width: 760px) {
+  .project-wide { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .project-wide .project-img { min-height: 0; aspect-ratio: 3 / 2; border-right: 0; border-bottom: 1px solid var(--line); border-radius: var(--radius) var(--radius) 0 0; }
+  .project-body { padding: 24px; }
+}
+
+/* ---------- About: portrait, archive ---------- */
+.portrait { margin: 0; display: grid; gap: 10px; justify-self: center; max-width: 440px; width: 100%; }
+.portrait img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line); }
+.portrait figcaption, .archive figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.source-note { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; }
+.about-lower { margin-top: clamp(48px, 7vw, 80px); }
+.archive { margin: 0; display: grid; gap: 14px; align-content: start; }
+.archive-imgs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  padding: 16px;
+  background: #fbfbf8; /* archive prints stay on paper white in both themes */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.archive-imgs img { width: 100%; height: 260px; object-fit: contain; mix-blend-mode: multiply; }
+.archive figcaption { line-height: 1.6; max-width: 60ch; }
+.archive figcaption strong { color: var(--ink); }
+.project-img-map { background: #f7f3d6; }
+.project-img-map img { object-fit: contain; filter: none; }
