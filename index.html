@@ -3,496 +3,227 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Intergeo landmeetkunde</title>
-  <meta name="description" content="Intergeo landmeetkunde uit De Meern: maatvoering, detailmetingen, deformatiemetingen en waterpassingen voor aannemers, ontwikkelaars en overheden. Sinds 1972.">
-  <meta name="theme-color" content="#14262b">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <title>Intergeo landmeetkunde | Maatvoering en landmeten in De Meern</title>
+  <meta name="description" content="Landmeetkundig bureau in De Meern sinds 1972. Maatvoering, detailmetingen, deformatiemetingen en waterpassingen voor aannemers, ontwikkelaars en overheden.">
+  <link rel="canonical" href="https://intergeo.nl/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="Intergeo landmeetkunde">
+  <meta property="og:title" content="Intergeo landmeetkunde | Maatvoering en landmeten in De Meern">
+  <meta property="og:description" content="Landmeetkundig bureau in De Meern sinds 1972. Maatvoering, detailmetingen, deformatiemetingen en waterpassingen voor aannemers, ontwikkelaars en overheden.">
+  <meta property="og:url" content="https://intergeo.nl/">
+  <meta property="og:image" content="https://intergeo.nl/assets/img/sixflags-maatvoering.jpg">
+  <meta name="theme-color" content="#15262b">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..850&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://intergeo.nl/#organisatie","name":"Intergeo landmeetkunde","legalName":"Intergeo BV","url":"https://intergeo.nl/","logo":"https://intergeo.nl/assets/img/favicon.svg","image":"https://intergeo.nl/assets/img/sixflags-maatvoering.jpg","telephone":"+31306067817","email":"info@intergeo.nl","foundingDate":"1972","description":"Landmeetkundig bureau voor maatvoering, detailmetingen, deformatiemetingen, waterpassingen, DTM-metingen en industriële metingen.","address":{"@type":"PostalAddress","streetAddress":"Gessel 34","postalCode":"3454 MZ","addressLocality":"De Meern","addressRegion":"Utrecht","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.0731,"longitude":5.0427},"areaServed":{"@type":"Country","name":"Nederland"},"knowsAbout":["Maatvoering en uitzetwerk","Deformatie- en zettingsmetingen","Detailmetingen","Waterpassingen","DTM-metingen","Industriële metingen","Speciale metingen"]}</script>
 </head>
 <body>
   <a class="skip" href="#inhoud">Direct naar de inhoud</a>
-
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Intergeo landmeetkunde, naar boven">
+      <a class="brand" href="/" aria-label="Intergeo landmeetkunde, naar de homepage">
         <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
           <circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/>
-          <path d="M20 2v12M20 26v12M2 20h12M26 20h12" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
-          <circle cx="20" cy="20" r="3" fill="var(--signal)"/>
+          <path d="M20 2v12M20 26v12M2 20h12M26 20h12" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="20" cy="20" r="3" fill="var(--orange)"/>
         </svg>
         <span class="brand-name">Intergeo<small>landmeetkunde</small></span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
         <span class="nav-toggle-bars" aria-hidden="true"></span>
-        <span class="nav-toggle-label">Menu</span>
+        <span>Menu</span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Hoofdmenu">
-        <a href="#diensten">Diensten</a>
-        <a href="#aannemers">Voor aannemers</a>
-        <a href="#projecten">Projecten</a>
-        <a href="#over-ons">Over ons</a>
-        <a href="#werken-bij">Werken bij</a>
-        <a class="btn btn-small" href="#contact">Offerte aanvragen</a>
+        <a href="/diensten">Diensten</a>
+        <a href="/voor-aannemers">Voor aannemers</a>
+        <a href="/projecten">Projecten</a>
+        <a href="/over-ons">Over ons</a>
+        <a href="/werken-bij">Werken bij</a>
+        <a class="btn btn-small" href="/contact">Contact</a>
       </nav>
     </div>
   </header>
-
   <main id="inhoud">
+    
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero">
       <canvas class="hero-contours" id="hero-contours" aria-hidden="true"></canvas>
       <div class="wrap hero-inner">
         <p class="eyebrow">Landmeetkundig bureau in De Meern, sinds 1972</p>
-        <h1 id="hero-title">De onmisbare schakel tussen plan en realisatie</h1>
-        <p class="hero-lead">
-          Wij zetten uw ontwerp nauwkeurig uit in het veld, meten bestaande situaties in
-          en bewaken zettingen tijdens de bouw. Voor aannemers, projectontwikkelaars,
-          architecten, adviesbureaus en overheden.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#contact">Vraag een offerte aan</a>
-          <a class="btn btn-ghost" href="#aannemers">Werkt u vaker met ons? Lees verder</a>
+        <h1>De onmisbare schakel tussen plan en realisatie</h1>
+        <p class="lead">Wij zetten uw ontwerp nauwkeurig uit, meten bestaande situaties in en bewaken zettingen tijdens de bouw.</p>
+        <div class="actions">
+          <a class="btn" href="/contact">Offerte aanvragen</a>
+          <a class="btn btn-ghost" href="/diensten">Bekijk onze diensten</a>
         </div>
       </div>
-      <div class="wrap hero-readout" aria-hidden="true">
-        <span class="readout-label">Ons kantoor in RD</span>
-        <span class="readout-value" id="readout">X 131 378 &nbsp; Y 453 925</span>
-      </div>
     </section>
 
-    <!-- KERNFEITEN -->
-    <section class="facts" aria-label="Intergeo in het kort">
-      <div class="wrap facts-grid">
-        <div class="fact"><span class="fact-value">1972</span><span class="fact-label">opgericht, familiebedrijf</span></div>
-        <div class="fact"><span class="fact-value">7</span><span class="fact-label">specialismen, van maatvoering tot DTM</span></div>
-        <div class="fact"><span class="fact-value">A2 / A12</span><span class="fact-label">snel op locatie in heel Nederland</span></div>
-        <div class="fact"><span class="fact-value">mm</span><span class="fact-label">nauwkeurigheid waar het project om vraagt</span></div>
-      </div>
-    </section>
-
-    <!-- DIENSTEN -->
-    <section class="section" id="diensten" aria-labelledby="diensten-title">
+    <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Diensten</p>
-          <h2 id="diensten-title">Wat wij voor u meten</h2>
-          <p class="section-intro">
-            Van de eerste rooilijn tot de laatste controlemeting. Wij leveren de
-            meetgegevens analoog of in het digitale formaat dat u gebruikt.
-          </p>
+          <h2>Wat wij voor u meten</h2>
+          <p>Zeven specialismen, van de eerste rooilijn tot de laatste controlemeting.</p>
         </div>
-
-        <div class="services">
-          <article class="service service-primary">
-            <h3>Maatvoering en uitzetwerk</h3>
-            <p>
-              De maatvoering is de basis van elk bouw- of infraproject. Wij verklikken de
-              rooilijnen voordat het heien begint, zetten het palenplan uit en verzorgen
-              daarna de stramienen en de detailmaatvoering van gevellijnen, kolommen en ankers.
-            </p>
-            <p class="service-for">Voor aannemers in bouw, utiliteit en infra</p>
-          </article>
-
-          <article class="service service-primary">
-            <h3>Deformatie- en zettingsmetingen</h3>
-            <p>
-              Bij grondverzet en bouwwerkzaamheden kan bebouwing in de omgeving zakken of
-              verschuiven. Met een nulmeting vooraf en herhalingsmetingen tijdens het werk
-              ziet u op tijd of extra maatregelen nodig zijn.
-            </p>
-            <p class="service-for">Voor bouwprojecten naast bestaande bebouwing en infrastructuur</p>
-          </article>
-
-          <article class="service">
-            <h3>Detailmetingen</h3>
-            <p>
-              Van een klein perceel tot een complete stadskaart. Als voorbereiding op een
-              bouwproject of om de bestaande situatie vast te leggen, desgewenst met hoogtes.
-            </p>
-          </article>
-
-          <article class="service">
-            <h3>Waterpassingen</h3>
-            <p>
-              Nauwkeurige hoogtebepaling ten opzichte van NAP met een digitaal
-              waterpasinstrument: snel, betrouwbaar en goed controleerbaar.
-            </p>
-          </article>
-
-          <article class="service">
-            <h3>DTM-metingen</h3>
-            <p>
-              Een terrein in 3D in kaart gebracht. Daaruit maken wij hoogtelijnen, profielen
-              en volumeberekeningen voor grondverzet en landschapsontwerp.
-            </p>
-          </article>
-
-          <article class="service">
-            <h3>Industriële metingen</h3>
-            <p>
-              Controle van kraanbanen, railbanen, rollenbanen en machines. Om de oorzaak van
-              slijtage of ontsporing te vinden, of voor de maatvoering van nieuwe installaties.
-            </p>
-          </article>
-
-          <article class="service">
-            <h3>Speciale metingen</h3>
-            <p>
-              Lastige plek, instabiele ondergrond of een ongebruikelijke vraag? Wij bedenken
-              een meetopstelling die werkt, zoals een robotic total station op een dak.
-            </p>
-          </article>
+        <div class="grid grid-services">
+        <a class="card service-card tone-orange" href="/diensten/maatvoering">
+          <h3>Maatvoering en uitzetwerk</h3>
+          <p>Rooilijnen, palenplan, stramienen en detailmaatvoering voor bouw- en infraprojecten.</p>
+          <span class="card-more" aria-hidden="true">Meer over maatvoering en uitzetwerk →</span>
+        </a>
+        <a class="card service-card tone-blue" href="/diensten/deformatiemetingen">
+          <h3>Deformatie- en zettingsmetingen</h3>
+          <p>Bewaking van bebouwing en infrastructuur tijdens bouw en grondverzet.</p>
+          <span class="card-more" aria-hidden="true">Meer over deformatie- en zettingsmetingen →</span>
+        </a>
+        <a class="card service-card tone-green" href="/diensten/detailmetingen">
+          <h3>Detailmetingen</h3>
+          <p>De bestaande situatie ingemeten, van een klein perceel tot een complete stadskaart.</p>
+          <span class="card-more" aria-hidden="true">Meer over detailmetingen →</span>
+        </a>
+        <a class="card service-card tone-blue" href="/diensten/waterpassingen">
+          <h3>Waterpassingen</h3>
+          <p>Nauwkeurige hoogtebepaling ten opzichte van NAP.</p>
+          <span class="card-more" aria-hidden="true">Meer over waterpassingen →</span>
+        </a>
+        <a class="card service-card tone-green" href="/diensten/dtm-metingen">
+          <h3>DTM-metingen</h3>
+          <p>Terreinen in 3D in kaart, met hoogtelijnen, profielen en volumes.</p>
+          <span class="card-more" aria-hidden="true">Meer over dtm-metingen →</span>
+        </a>
+        <a class="card service-card tone-plum" href="/diensten/industriele-metingen">
+          <h3>Industriële metingen</h3>
+          <p>Kraanbanen, railbanen, rollenbanen en machines gecontroleerd en uitgezet.</p>
+          <span class="card-more" aria-hidden="true">Meer over industriële metingen →</span>
+        </a>
+        <a class="card service-card tone-ochre" href="/diensten/speciale-metingen">
+          <h3>Speciale metingen</h3>
+          <p>Lastige plek of ongewone vraag? Wij bedenken een meetopstelling die werkt.</p>
+          <span class="card-more" aria-hidden="true">Meer over speciale metingen →</span>
+        </a>
+        <div class="help-card">
+          <h3>Welke meting heeft u nodig?</h3>
+          <p>Twijfelt u? Beschrijf uw project en wij adviseren over de juiste meetmethode.</p>
+          <a class="btn btn-small" href="/contact">Vraag advies</a>
+        </div>
         </div>
       </div>
     </section>
 
-    <!-- WERKWIJZE -->
-    <section class="section section-tint" aria-labelledby="werkwijze-title">
+    <section class="section section-tint">
+      <div class="wrap grid grid-2">
+        <div class="audience tone-blue">
+          <p class="eyebrow">Nieuwe opdrachtgever</p>
+          <h2>Eerst kennismaken?</h2>
+          <p>Bel of mail ons met uw vraag. Wij kijken wat er nodig is, adviseren over de meetmethode en sturen een heldere offerte.</p>
+          <a class="btn" href="/contact">Neem contact op</a>
+        </div>
+        <div class="audience tone-orange">
+          <p class="eyebrow">Vaste aannemer</p>
+          <h2>Uw vaste landmeter op de bouwplaats</h2>
+          <p>Eén aanspreekpunt dat uw projecten en uitvoerders kent, snel ter plaatse en met vaste afspraken voor terugkerend werk.</p>
+          <a class="btn" href="/voor-aannemers">Werken met Intergeo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Werkwijze bij maatvoering</p>
-          <h2 id="werkwijze-title">Zo loopt een bouwproject bij ons</h2>
+        <div class="section-head section-head-row">
+          <h2>Uit ons werk</h2>
+          <a class="link-arrow" href="/projecten">Alle projecten →</a>
         </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step-n">1</span>
-            <h3>Rooilijnen verklikken</h3>
-            <p>Wij leggen de uitgangspunten buiten de bouwput vast, zodat het heien ze niet verstoort.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">2</span>
-            <h3>Palenplan uitzetten</h3>
-            <p>Elke paal komt op de juiste plek, gecontroleerd en vastgelegd.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">3</span>
-            <h3>Stramienen</h3>
-            <p>Het stramienstelsel geeft uw uitvoerders een vast referentiekader op de bouwplaats.</p>
-          </li>
-          <li class="step">
-            <span class="step-n">4</span>
-            <h3>Detailmaatvoering</h3>
-            <p>Gevellijnen, kolommen en ankers op de millimeter, verdieping na verdieping.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- VOOR AANNEMERS -->
-    <section class="section section-dark" id="aannemers" aria-labelledby="aannemers-title">
-      <div class="wrap split">
-        <div class="split-text">
-          <p class="eyebrow">Voor vaste aannemers</p>
-          <h2 id="aannemers-title">Uw vaste landmeter op de bouwplaats</h2>
-          <p>
-            Veel aannemers werken al jaren met ons samen. Dat werkt goed omdat wij hun manier
-            van werken kennen en zij weten wat ze van ons kunnen verwachten. Wij denken mee
-            met de uitvoering en melden het direct als iets niet klopt met de tekening.
-          </p>
-          <a class="btn btn-signal" href="#contact">Maak kennis met ons</a>
-        </div>
-        <ul class="promises">
-          <li>
-            <h3>Eén vast aanspreekpunt</h3>
-            <p>U belt met iemand die uw projecten en uw uitvoerders kent.</p>
-          </li>
-          <li>
-            <h3>Snel inzetbaar</h3>
-            <p>Vanuit De Meern zijn we via de A2 en A12 snel bij u op de bouwplaats.</p>
-          </li>
-          <li>
-            <h3>Gegevens zoals u ze wilt</h3>
-            <p>Meetresultaten en rapportages in het formaat dat aansluit op uw werkwijze.</p>
-          </li>
-          <li>
-            <h3>Duidelijke afspraken</h3>
-            <p>Voor terugkerend werk maken we vaste afspraken over planning en tarieven.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTEN -->
-    <section class="section" id="projecten" aria-labelledby="projecten-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Projecten</p>
-          <h2 id="projecten-title">Uit ons werk</h2>
-          <p class="section-intro">Een greep uit projecten waaraan wij hebben gemeten.</p>
-        </div>
-
-        <div class="projects">
-          <article class="project project-wide">
-            <figure class="project-img">
-              <img src="assets/img/sixflags-maatvoering.jpg" width="432" height="296" loading="lazy"
-                   alt="Landmeter van Intergeo met total station voor de houten achtbaan in aanbouw bij Six Flags Holland">
-            </figure>
-            <div class="project-body">
-              <p class="project-meta"><span>Detailmeting en maatvoering</span><span>Biddinghuizen</span></p>
-              <h3>Six Flags Holland</h3>
-              <p>
-                Het voormalige Walibi Flevo werd in één winter omgebouwd tot Six Flags Holland en ging in
-                april 2000 weer open. In de zomer van 1999 maten wij het park in. Daarna verzorgden wij een
-                groot deel van de maatvoering van de nieuwe attracties en infrastructuur, waaronder de
-                houten achtbaan Robin Hood, de launch coaster Superman the Ride en de Boomerang.
-              </p>
-              <div class="project-thumbs">
-                <img src="assets/img/sixflags-wooden-coaster.jpg" width="433" height="208" loading="lazy" alt="Houten achtbaan Robin Hood in aanbouw">
-                <img src="assets/img/sixflags-launch-coaster.jpg" width="295" height="345" loading="lazy" alt="Launch coaster Superman the Ride in aanbouw">
-              </div>
-            </div>
-          </article>
-
-          <article class="project">
-            <figure class="project-img project-img-map">
-              <img src="assets/img/betuweroute-kaart.gif" width="435" height="128" loading="lazy"
-                   alt="Kaart van het Betuweroutetracé bij Rotterdam-Zuid, langs Pendrecht, Zuidwijk en het Vaanplein">
-            </figure>
-            <p class="project-meta"><span>Deformatiemetingen</span><span>Rotterdam-Zuid</span></p>
+        <div class="grid grid-3">
+        <article class="card project-card" id="six-flags-holland">
+          <figure class="project-img"><img src="/assets/img/sixflags-maatvoering.jpg" alt="Landmeter met total station voor de houten achtbaan in aanbouw" loading="lazy"></figure>
+          <div class="project-body">
+            <p class="project-meta"><a class="tag tone-orange" href="/diensten/maatvoering">Detailmeting en maatvoering</a><span>Biddinghuizen</span></p>
+            <h3>Six Flags Holland</h3>
+            <p>Het voormalige Walibi Flevo werd in één winter omgebouwd tot Six Flags Holland en ging in april 2000 weer open. In de zomer van 1999 maten wij het park in. Daarna verzorgden wij een groot deel van de maatvoering van de nieuwe attracties en infrastructuur, waaronder de houten achtbaan Robin Hood, de launch coaster Superman the Ride en de Boomerang.</p>
+          </div>
+        </article>
+        <article class="card project-card" id="betuweroute">
+          <figure class="project-img contain"><img src="/assets/img/betuweroute-kaart.gif" alt="Kaart van het Betuweroutetracé bij Rotterdam-Zuid" loading="lazy"></figure>
+          <div class="project-body">
+            <p class="project-meta"><a class="tag tone-blue" href="/diensten/deformatiemetingen">Deformatiemetingen</a><span>Rotterdam-Zuid</span></p>
             <h3>Betuweroute</h3>
-            <p>
-              Bij Rotterdam-Zuid kruist de Betuweroute bestaande spoorlijnen en wegen. Voor de bouw
-              plaatsten wij meetpunten in huizen, viaducten, wegen en spoorrails en legden wij met een
-              nulmeting de hoogte en zo nodig de X/Y-positie vast. Tijdens het werk meten wij de objecten
-              regelmatig opnieuw.
-            </p>
-          </article>
-
-          <article class="project">
-            <figure class="project-img">
-              <img src="assets/img/circuit-zandvoort.jpg" width="390" height="260" loading="lazy"
-                   alt="Luchtfoto van Circuit Zandvoort met op de voorgrond het nieuwe baangedeelte">
-            </figure>
-            <p class="project-meta"><span>Maatvoering grondwerk en baan</span><span>Zandvoort</span></p>
+            <p>Bij Rotterdam-Zuid kruist de Betuweroute bestaande spoorlijnen en wegen. Voor de bouw plaatsten wij meetpunten in huizen, viaducten, wegen en spoorrails en legden wij met een nulmeting de hoogte en zo nodig de X/Y-positie vast. Tijdens het werk meten wij de objecten regelmatig opnieuw.</p>
+          </div>
+        </article>
+        <article class="card project-card" id="circuit-zandvoort">
+          <figure class="project-img"><img src="/assets/img/circuit-zandvoort.jpg" alt="Luchtfoto van Circuit Zandvoort met op de voorgrond het nieuwe baangedeelte" loading="lazy"></figure>
+          <div class="project-body">
+            <p class="project-meta"><a class="tag tone-orange" href="/diensten/maatvoering">Maatvoering grondwerk en baan</a><span>Zandvoort</span></p>
             <h3>Circuit Zandvoort</h3>
-            <p>
-              In de winter van 1998-1999 werd het circuit verlengd tot 4.250 meter. Wij verzorgden voor de
-              aannemer de maatvoering van het grondwerk en de geluidswallen, en daarna van de nieuwe baan
-              en de omliggende infrastructuur.
-            </p>
-          </article>
-
-          <article class="project">
-            <figure class="project-img">
-              <img src="assets/img/bodemsanering-kralingen.jpg" width="600" height="489" loading="lazy"
-                   alt="Bodemsanering van de voormalige gasfabriek in Kralingen, met graafmachines en vrachtwagens">
-            </figure>
-            <p class="project-meta"><span>Volumes en revisie</span><span>Rotterdam-Kralingen</span></p>
-            <h3>Bodemsanering Kralingen</h3>
-            <p>
-              Bij de sanering van de voormalige gasfabriek, destijds de grootste bodemsanering van
-              Nederland, bepaalden wij regelmatig het grondverzet. Ook maten en karteerden wij de nieuwe,
-              grotendeels ondergrondse infrastructuur: peilbuizen, putten, leidingen en drains.
-            </p>
-          </article>
-
-          <article class="project">
-            <figure class="project-img">
-              <img src="assets/img/kraanbaan-den-helder.jpg" width="200" height="220" loading="lazy"
-                   alt="Meting boven op een kraanbaan met een speciaal ministatief">
-            </figure>
-            <p class="project-meta"><span>Industriële meting</span><span>Den Helder</span></p>
-            <h3>Kraanbaan marinebasis</h3>
-            <p>
-              Controle van de rechtheid en positie van een nieuwe bovenloopkraanbaan. Met
-              standaardapparatuur ging dat niet, dus maakten wij een eigen ministatief en een vaste
-              meetopstelling boven op de kraanbaan.
-            </p>
-          </article>
-
-          <article class="project">
-            <figure class="project-img">
-              <img src="assets/img/one-man-station-dak.jpg" width="296" height="466" loading="lazy"
-                   alt="Total station met afstandsbediening opgesteld op een plat dak">
-            </figure>
-            <p class="project-meta"><span>Speciale meting</span><span>Diverse bouwmarkten</span></p>
-            <h3>Daken van bouwmarkten</h3>
-            <p>
-              In opdracht van Avant Bouwpartners brachten wij de daken van een reeks bouwmarkten in kaart,
-              om de capaciteit van hemelwaterafvoeren en noodoverlaten te bepalen. De dakbedekking was te
-              instabiel voor een gewone opstelling. Daarom meten wij met een zelfzoekend one-man station
-              dat niet door een waarnemer wordt verstoord.
-            </p>
-          </article>
-
-          <article class="project">
-            <figure class="project-img">
-              <img src="assets/img/waterpassing-berkheide.jpg" width="200" height="300" loading="lazy"
-                   alt="Landmeter in het water bij het waterpassen van een waterniveaumeter in de duinen">
-            </figure>
-            <p class="project-meta"><span>Waterpassing</span><span>Katwijk</span></p>
-            <h3>Waterwingebied Berkheide</h3>
-            <p>
-              Voor waterleidingbedrijf DZH, nu Dunea, waterpasten wij een nog te monteren
-              waterniveaumeter in het duingebied, zodat de metingen exact aan NAP gekoppeld zijn.
-            </p>
-          </article>
-        </div>
-
-        <div class="clients">
-          <h3 class="clients-title">Wij werken voor</h3>
-          <ul class="clients-list">
-            <li>Aannemers</li>
-            <li>Projectontwikkelaars</li>
-            <li>Architectenbureaus</li>
-            <li>Overheidsinstellingen</li>
-            <li>Adviesbureaus</li>
-            <li>Industrie</li>
-            <li>Particulieren</li>
-          </ul>
+            <p>In de winter van 1998-1999 werd het circuit verlengd tot 4.250 meter. Wij verzorgden voor de aannemer de maatvoering van het grondwerk en de geluidswallen, en daarna van de nieuwe baan en de omliggende infrastructuur.</p>
+          </div>
+        </article>
         </div>
       </div>
     </section>
 
-    <!-- OVER ONS -->
-    <section class="section section-tint" id="over-ons" aria-labelledby="over-title">
-      <div class="wrap">
-        <div class="split">
-          <div class="split-text">
-            <p class="eyebrow">Over ons · 50 jaar in 2022</p>
-            <h2 id="over-title">Landmeters uit een landmetersfamilie</h2>
-            <p>
-              Intergeo is in 1972 opgericht door ing. John Koopmans. Landmeten zat in de familie: zijn
-              vader was bureauchef bij het Kadaster. John hoorde bij de allereerste lichting van de
-              hts-opleiding landmeten en werkte daarna als gemeentelandmeter in Amsterdam.
-            </p>
-            <p>
-              Naast het opbouwen van Intergeo werkte hij jarenlang in het buitenland, onder meer in
-              Frankrijk, Ghana, Noord-Afrika, Kenia en Indonesië. Ook gaf hij twintig jaar les in het
-              landmeetkundig onderwijs. Zijn zoon heeft het bureau van hem overgenomen.
-            </p>
-            <p>
-              In 2022 bestond Intergeo 50 jaar. We zijn nog altijd een klein, persoonlijk bureau met veel
-              vakkennis, dat ook voor ongebruikelijke meetvragen een oplossing vindt.
-            </p>
-            <p class="source-note">Bron: interview met John Koopmans in vakblad Geodesia, december 1999.</p>
-          </div>
-          <figure class="portrait">
-            <img src="assets/img/john-koopmans.jpg" width="295" height="234" loading="lazy"
-                 alt="Oprichter John Koopmans tussen een total station en een waterpasinstrument">
-            <figcaption>Oprichter ing. John Koopmans</figcaption>
-          </figure>
-        </div>
-
-        <div class="split about-lower">
-          <div class="gear">
-            <h3>Waarmee wij meten</h3>
-            <dl class="gear-list">
-              <div><dt>Gemotoriseerd total station</dt><dd>Snel en nauwkeurig voor uitzetwerk en detailmetingen. Zelfzoekend en volgend, ook te gebruiken als one-man station.</dd></div>
-              <div><dt>Digitaal waterpasinstrument</dt><dd>Voor snelle en nauwkeurige hoogtemetingen ten opzichte van NAP.</dd></div>
-              <div><dt>Eigen meetopstellingen</dt><dd>Statieven en opstellingen op maat voor industriële en speciale metingen.</dd></div>
-            </dl>
-          </div>
-          <figure class="archive">
-            <div class="archive-imgs">
-              <img src="assets/img/theodoliet.jpg" width="240" height="320" loading="lazy" alt="Gravure van een oude theodoliet">
-              <img src="assets/img/seinen-1943.gif" width="642" height="996" loading="lazy" alt="Communicatierichtlijnen voor landmeters uit 1943 met handseinen voor de meethulp">
-            </div>
-            <figcaption>
-              <strong>Uit het archief.</strong> Vroeger waren de theodoliet, het optische
-              waterpas en de meetband onze belangrijkste hulpmiddelen. Communiceren in het veld ging
-              in 1943 nog met handseinen.
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- WERKEN BIJ -->
-    <section class="section" id="werken-bij" aria-labelledby="werken-title">
+    <section class="section section-tint">
       <div class="wrap split">
-        <div class="split-text">
-          <p class="eyebrow">Werken bij Intergeo</p>
-          <h2 id="werken-title">Wij zoeken een maatvoerder / landmeter</h2>
-          <p>
-            Voor 32 tot 40 uur per week. Je werkt op wisselende projecten, van bouwplaats tot
-            fabriekshal, in een klein team waar je snel verantwoordelijkheid krijgt.
-          </p>
-          <p>
-            Stuur je sollicitatie naar
-            <a href="mailto:info@intergeo.nl?subject=Sollicitatie%20maatvoerder%20%2F%20landmeter">info@intergeo.nl</a>
-            of per post naar Intergeo BV, Gessel 34, 3454 MZ De Meern.
-          </p>
+        <figure class="portrait">
+          <img src="/assets/img/john-koopmans.jpg" alt="Oprichter John Koopmans tussen een total station en een waterpasinstrument" width="295" height="234" loading="lazy">
+          <figcaption>Oprichter ing. John Koopmans</figcaption>
+        </figure>
+        <div class="stack">
+          <p class="eyebrow">Over Intergeo</p>
+          <h2>Ruim 50 jaar landmeten vanuit De Meern</h2>
+          <p>Intergeo is in 1972 opgericht en is nog altijd een klein, persoonlijk familiebedrijf. Wij werken voor aannemers, projectontwikkelaars, architecten, adviesbureaus, overheden en particulieren.</p>
+          <a class="link-arrow" href="/over-ons">Meer over ons →</a>
         </div>
-        <ul class="perks">
-          <li>Veel afwisseling in het werk</li>
-          <li>Informele werksfeer</li>
-          <li>Training en opleidingsmogelijkheden</li>
-          <li>Uitstekende secundaire arbeidsvoorwaarden</li>
-        </ul>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section section-dark" id="contact" aria-labelledby="contact-title">
-      <div class="wrap split">
-        <div class="split-text">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Vertel ons wat er gemeten moet worden</h2>
-          <p>Bel ons, stuur een e-mail of vul het formulier in. Wij nemen zo snel mogelijk contact met u op.</p>
-
-          <dl class="contact-list">
-            <div><dt>Telefoon</dt><dd><a href="tel:+31306067817">030 - 606 78 17</a></dd></div>
-            <div><dt>E-mail</dt><dd><a href="mailto:info@intergeo.nl">info@intergeo.nl</a></dd></div>
-            <div><dt>Adres</dt><dd>Gessel 34<br>3454 MZ De Meern</dd></div>
-            <div><dt>Route</dt><dd>Aan de rand van bedrijventerrein Oudenrijn, goed bereikbaar via de A2 en A12.
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Gessel+34+3454+MZ+De+Meern" rel="noopener" target="_blank">Open in Google Maps</a></dd></div>
-          </dl>
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <div>
+          <h2>Iets laten meten?</h2>
+          <p>Vertel ons wat er gemeten moet worden. Wij denken graag mee over de aanpak en sturen u een offerte.</p>
         </div>
-
-        <form class="form" id="contact-form" novalidate>
-          <div class="field">
-            <label for="f-naam">Naam</label>
-            <input id="f-naam" name="naam" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="f-bedrijf">Bedrijf <span class="optional">(optioneel)</span></label>
-            <input id="f-bedrijf" name="bedrijf" type="text" autocomplete="organization">
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="f-email">E-mailadres</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="f-tel">Telefoonnummer</label>
-              <input id="f-tel" name="telefoon" type="tel" autocomplete="tel">
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-soort">Waar gaat het om?</label>
-            <select id="f-soort" name="soort">
-              <option>Maatvoering en uitzetwerk</option>
-              <option>Deformatie- en zettingsmetingen</option>
-              <option>Detailmeting</option>
-              <option>Waterpassing</option>
-              <option>DTM-meting</option>
-              <option>Industriële meting</option>
-              <option>Iets anders</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-bericht">Uw vraag</label>
-            <textarea id="f-bericht" name="bericht" rows="5" required placeholder="Locatie, planning en wat u wilt laten meten"></textarea>
-          </div>
-          <p class="form-error" id="form-error" role="alert" hidden></p>
-          <button class="btn btn-signal" type="submit">Verstuur aanvraag</button>
-        </form>
+        <div class="cta-actions">
+          <a class="btn" href="/contact">Offerte aanvragen</a>
+          <a class="btn btn-ghost" href="tel:+31306067817">Bel 030 - 606 78 17</a>
+        </div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p><strong>Intergeo landmeetkunde</strong> · Gessel 34, 3454 MZ De Meern · 030 - 606 78 17</p>
-      <p class="footer-coords">52.0731° N, 5.0427° O · RD X 131 378, Y 453 925</p>
+    <div class="wrap footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand">Intergeo landmeetkunde</p>
+        <address>
+          Gessel 34<br>3454 MZ De Meern<br>
+          <a href="tel:+31306067817">030 - 606 78 17</a><br>
+          <a href="mailto:info@intergeo.nl">info@intergeo.nl</a>
+        </address>
+      </div>
+      <nav class="footer-col" aria-label="Diensten">
+        <p class="footer-title">Diensten</p>
+        <ul><li><a href="/diensten/maatvoering">Maatvoering en uitzetwerk</a></li><li><a href="/diensten/deformatiemetingen">Deformatie- en zettingsmetingen</a></li><li><a href="/diensten/detailmetingen">Detailmetingen</a></li><li><a href="/diensten/waterpassingen">Waterpassingen</a></li><li><a href="/diensten/dtm-metingen">DTM-metingen</a></li><li><a href="/diensten/industriele-metingen">Industriële metingen</a></li><li><a href="/diensten/speciale-metingen">Speciale metingen</a></li></ul>
+      </nav>
+      <nav class="footer-col" aria-label="Bedrijf">
+        <p class="footer-title">Intergeo</p>
+        <ul>
+          <li><a href="/voor-aannemers">Voor aannemers</a></li>
+          <li><a href="/projecten">Projecten</a></li>
+          <li><a href="/over-ons">Over ons</a></li>
+          <li><a href="/werken-bij">Werken bij</a></li>
+          <li><a href="/contact">Contact en route</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Intergeo BV</span>
+      <span class="mono">RD X 131 378, Y 453 925</span>
     </div>
   </footer>
-
-  <script src="assets/js/main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

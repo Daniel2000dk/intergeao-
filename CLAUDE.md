@@ -1,19 +1,21 @@
 # Intergeo landmeetkunde: website
 
-Statische website (geen build-stap) voor Intergeo landmeetkunde, De Meern.
-Open `index.html` direct in de browser.
+Statische website voor Intergeo landmeetkunde, De Meern. Gehost op Vercel (`vercel.json`: clean URLs, dus `/diensten/maatvoering` serveert `diensten/maatvoering.html`).
 
-## Structuur
-- `index.html`: alle content, één pagina met ankers (#diensten, #aannemers, #projecten, #over-ons, #werken-bij, #contact)
-- `assets/css/style.css`: designtokens staan bovenaan in `:root`, met een donkere variant via `prefers-color-scheme` en `[data-theme]`
-- `assets/js/main.js`: mobiel menu, hoogtelijnenkaart met meetkruis in de hero, en het contactformulier (opent het e-mailprogramma van de bezoeker)
+## Werkwijze
+- Teksten staan in `scripts/content.mjs` (diensten, projecten, bedrijfsgegevens); paginaopbouw in `scripts/build.mjs`.
+- Na elke wijziging: `node scripts/build.mjs`. Dat schrijft alle `.html`-pagina's, `sitemap.xml` en `robots.txt` opnieuw. Bewerk de gegenereerde HTML niet met de hand.
+- Nieuwe dienst of project: voeg een object toe in `content.mjs` en draai de build; menu, footer, sitemap en interne links volgen vanzelf.
+
+## SEO
+- Elke pagina heeft een eigen `<title>`, meta description, canonical, Open Graph en JSON-LD (ProfessionalService, BreadcrumbList, Service per dienst, JobPosting voor de vacature).
+- Domein staat in `SITE.url` in `content.mjs`; pas dat aan als het domein anders is.
 
 ## Huisstijl
-- Kleuren: kaartpapier (`--paper`), donker instrument-inkt (`--ink`/`--deep`), jalon-oranje (`--signal`) als enige accentkleur
-- Lettertypen: Archivo (koppen, variabele breedte), IBM Plex Sans (tekst), IBM Plex Mono (labels, coördinaten)
-- Gebruik altijd tokens, nooit losse kleurwaarden in componenten
+- Tokens bovenaan `assets/css/style.css`, met een donkere variant (`prefers-color-scheme` en `[data-theme]`).
+- Kleurfamilies via `.tone-*`: oranje = bouw/maatvoering, blauw = hoogte en monitoring, groen = terrein, paars = industrie, oker = maatwerk/vacature.
+- Lettertypen: Archivo (koppen), IBM Plex Sans (tekst), IBM Plex Mono (labels, coördinaten).
 
 ## Teksten
-- Nederlands, u-vorm voor klanten, je-vorm in de vacature
-- Korte, concrete zinnen; geen verzonnen cijfers of beloftes, alleen feiten die Intergeo heeft bevestigd
-- Kantoorgegevens: Gessel 34, 3454 MZ De Meern · 030 - 606 78 17 · info@intergeo.nl · RD X 131 378, Y 453 925
+- Nederlands, u-vorm voor klanten, je-vorm in de vacature.
+- Korte, concrete zinnen; geen verzonnen cijfers of beloftes, alleen feiten die Intergeo heeft bevestigd.
