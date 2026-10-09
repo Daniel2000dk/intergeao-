@@ -345,3 +345,45 @@ a.tag:hover { background: var(--c); color: var(--paper); }
 .help-card p { color: color-mix(in srgb, var(--paper) 80%, transparent); }
 .help-card .btn { margin-top: auto; align-self: flex-start; background: var(--paper); border-color: var(--paper); color: var(--ink); }
 .help-card .btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+/* ---------- Dienstenlijst: één regel per dienst ---------- */
+.service-list { list-style: none; padding: 0; border-top: 1px solid var(--line); }
+.service-list li { border-bottom: 1px solid var(--line); }
+.service-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 24px;
+  align-items: center;
+  gap: 8px 32px;
+  padding: 20px 4px 20px 22px;
+  position: relative;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color .15s;
+}
+.service-list a::before {
+  content: "";
+  position: absolute; left: 4px; top: 50%;
+  width: 10px; height: 10px; margin-top: -5px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.service-list a:hover { background: var(--c-soft); }
+.sl-name { font: 700 var(--step-1)/1.25 var(--font-display); }
+.sl-sum { color: var(--ink-soft); }
+.sl-arrow { font-size: 1.2rem; color: var(--c-ink); transition: transform .15s; }
+.service-list a:hover .sl-arrow { transform: translateX(4px); }
+@media (max-width: 700px) {
+  .service-list a { grid-template-columns: minmax(0, 1fr) 24px; }
+  .sl-sum { grid-column: 1; grid-row: 2; }
+  .sl-arrow { grid-row: 1 / 3; grid-column: 2; }
+  .service-list a::before { top: 30px; }
+}
+.help-line { margin-top: 20px; color: var(--ink-soft); }
+.section-tint .service-list a:hover { background: var(--surface); }
+
+/* Dienstpagina: offertevak in de kop, vinkjes in de kleur van de dienst */
+.page-head .quote-box { background: var(--surface); border: 1px solid var(--line); }
+.page-head .quote-box .btn { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.page-head .quote-box .btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+.page-head .split { align-items: center; }
+.checks li::before { border-color: var(--c, var(--green)); }

@@ -185,19 +185,17 @@ function img(src, alt, { w, h, cls = "", eager = false } = {}) {
   return `<img src="/assets/img/${src}" alt="${esc(alt)}"${w ? ` width="${w}" height="${h}"` : ""}${cls ? ` class="${cls}"` : ""} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'}>`;
 }
 
-function serviceCard(s) {
-  return `<a class="card service-card tone-${s.tone}" href="/diensten/${s.slug}">
-          <h3>${s.name}</h3>
-          <p>${s.short}</p>
-          <span class="card-more" aria-hidden="true">Meer over ${s.name.toLowerCase()} →</span>
-        </a>`;
+function serviceList(list = SERVICES) {
+  return `<ul class="service-list">${list.map((s) => `
+          <li class="tone-${s.tone}"><a href="/diensten/${s.slug}">
+            <span class="sl-name">${s.name}</span>
+            <span class="sl-sum">${s.summary}</span>
+            <span class="sl-arrow" aria-hidden="true">→</span>
+          </a></li>`).join("")}
+        </ul>`;
 }
 
-const helpCard = `<div class="help-card">
-          <h3>Welke meting heeft u nodig?</h3>
-          <p>Twijfelt u? Beschrijf uw project en wij adviseren over de juiste meetmethode.</p>
-          <a class="btn btn-small" href="/contact">Vraag advies</a>
-        </div>`;
+const helpLine = `<p class="help-line">Twijfelt u welke meting u nodig heeft? Bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a> of <a href="/contact">vraag advies</a>.</p>`;
 
 function projectCard(p, { headingLevel = 3 } = {}) {
   const s = service(p.service);
@@ -252,12 +250,10 @@ page({
       <div class="wrap">
         <div class="section-head">
           <h2>Wat wij voor u meten</h2>
-          <p>Zeven specialismen, van de eerste rooilijn tot de laatste controlemeting.</p>
+          <p>Kies de dienst die bij uw project past.</p>
         </div>
-        <div class="grid grid-services">
-        ${SERVICES.map(serviceCard).join("\n        ")}
-        ${helpCard}
-        </div>
+        ${serviceList()}
+        ${helpLine}
       </div>
     </section>
 
@@ -322,9 +318,9 @@ page({
       </div>
     </section>
     <section class="section section-flush-top">
-      <div class="wrap grid grid-services">
-        ${SERVICES.map(serviceCard).join("\n        ")}
-        ${helpCard}
+      <div class="wrap">
+        ${serviceList()}
+        ${helpLine}
       </div>
     </section>
 ${ctaBand()}`,
@@ -332,22 +328,15 @@ ${ctaBand()}`,
 
 /* ---------- Dienstpagina's ---------- */
 for (const s of SERVICES) {
-  const sections = s.sections.map((sec) => {
-    let inner = "";
-    if (sec.steps) {
-      inner = `<ol class="steps">${sec.steps.map(([t, d], i) => `
-            <li><span class="step-n">${i + 1}</span><div><h3>${t}</h3><p>${d}</p></div></li>`).join("")}
-          </ol>`;
-    } else if (sec.list) {
-      inner = `<ul class="checks">${sec.list.map((l) => `<li>${l}</li>`).join("")}</ul>`;
-    } else {
-      inner = `<p>${sec.text}</p>`;
-    }
-    return `<div class="stack"><h2 class="h-small">${sec.title}</h2>${inner}</div>`;
-  }).join("\n          ");
-
-  const others = SERVICES.filter((o) => o.slug !== s.slug)
-    .map((o) => `<li><a class="tag tone-${o.tone}" href="/diensten/${o.slug}">${o.name}</a></li>`).join("");
+  const steps = s.steps ? `
+    <section class="section section-tint">
+      <div class="wrap stack">
+        <h2>Zo pakken wij het aan</h2>
+        <ol class="steps steps-row">${s.steps.map(([t, d], i) => `
+          <li><span class="step-n">${i + 1}</span><div><h3>${t}</h3><p>${d}</p></div></li>`).join("")}
+        </ol>
+      </div>
+    </section>` : "";
 
   page({
     path: `/diensten/${s.slug}`,
@@ -367,46 +356,52 @@ for (const s of SERVICES) {
     }],
     body: `
     <section class="page-head tone-${s.tone}">
-      <div class="wrap stack">
-        <p class="eyebrow">Dienst</p>
-        <h1>${s.name}</h1>
-        <p class="lead">${s.intro}</p>
+      <div class="wrap split split-aside">
+        <div class="stack">
+          <h1>${s.name}</h1>
+          <p class="lead">${s.summary}</p>
+        </div>
+        <div class="card quote-box">
+          <h2 class="h-small">Offerte aanvragen</h2>
+          <p>Stuur ons de tekening of een omschrijving van uw project.</p>
+          <a class="btn" href="/contact?onderwerp=${encodeURIComponent(s.name)}">Offerte aanvragen</a>
+          <p class="small">Of bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a></p>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap split split-aside">
-        <div class="stack stack-lg">
-          ${sections}
+      <div class="wrap grid grid-3 tone-${s.tone}">
+        <div class="stack">
+          <h2 class="h-small">Wat is het?</h2>
+          <p>${s.what}</p>
         </div>
-        <aside class="stack">
-          <figure class="aside-img${s.imageContain ? " contain" : ""}">${img(s.image, s.imageAlt)}</figure>
-          <div class="card quote-box tone-${s.tone}">
-            <h2 class="h-small">Offerte voor ${s.name.toLowerCase()}</h2>
-            <p>Stuur ons de tekening of omschrijving. U hoort snel wat de mogelijkheden zijn.</p>
-            <a class="btn" href="/contact?onderwerp=${encodeURIComponent(s.name)}">Offerte aanvragen</a>
-            <p class="small">Of bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a></p>
-          </div>
-        </aside>
+        <div class="stack">
+          <h2 class="h-small">Wanneer heeft u het nodig?</h2>
+          <ul class="checks">${s.when.map((l) => `<li>${l}</li>`).join("")}</ul>
+        </div>
+        <div class="stack">
+          <h2 class="h-small">Wat krijgt u?</h2>
+          <ul class="checks">${s.result.map((l) => `<li>${l}</li>`).join("")}</ul>
+        </div>
       </div>
     </section>
-
-    <section class="section section-tint">
+${steps}
+    <section class="section">
       <div class="wrap">
-        <div class="section-head"><h2>Projecten</h2></div>
+        <div class="section-head"><h2>${s.projects.length > 1 ? "Projecten" : "Project"}</h2></div>
         <div class="grid grid-2">
         ${s.projects.map((p) => projectCard(project(p))).join("\n        ")}
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap stack">
-        <h2 class="h-small">Andere diensten</h2>
-        <ul class="tag-list">${others}</ul>
+    <section class="section section-tint">
+      <div class="wrap">
+        <div class="section-head"><h2>Andere diensten</h2></div>
+        ${serviceList(SERVICES.filter((o) => o.slug !== s.slug))}
       </div>
-    </section>
-${ctaBand()}`,
+    </section>`,
   });
 }
 

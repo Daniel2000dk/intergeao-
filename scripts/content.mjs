@@ -18,35 +18,32 @@ export const SITE = {
   ogImage: "/assets/img/sixflags-maatvoering.jpg",
 };
 
-// tone: kleurfamilie per dienst (orange = bouw, blue = hoogte en monitoring, green = terrein, plum = industrie, ochre = maatwerk)
+// Elke dienst heeft dezelfde opbouw: summary (één regel), what, when[], result[], optioneel steps[].
+// tone: kleur van de dienst (orange = bouw, blue = hoogte en monitoring, green = terrein, plum = industrie, ochre = maatwerk)
 export const SERVICES = [
   {
     slug: "maatvoering",
     tone: "orange",
     name: "Maatvoering en uitzetwerk",
-    short: "Rooilijnen, palenplan, stramienen en detailmaatvoering voor bouw- en infraprojecten.",
+    summary: "Uw ontwerp nauwkeurig uitgezet op de bouwplaats.",
     metaTitle: "Maatvoering en uitzetwerk voor bouw en infra",
-    metaDescription: "Nauwkeurige maatvoering en uitzetwerk voor aannemers: rooilijnen verklikken, palenplan uitzetten, stramienen en detailmaatvoering. Intergeo uit De Meern, sinds 1972.",
-    intro: "De maatvoering is de basis van elk bouw- of infraproject. Klopt die niet, dan klopt de rest ook niet. Daarom voeren wij dit werk zeer nauwkeurig uit, met gemotoriseerde total stations.",
-    sections: [
-      {
-        title: "Zo pakken wij het aan",
-        steps: [
-          ["Rooilijnen verklikken", "Wij leggen de uitgangspunten buiten de bouwput vast, zodat het heiwerk ze niet verstoort."],
-          ["Palenplan uitzetten", "Elke paal op de juiste plek, gecontroleerd en vastgelegd."],
-          ["Stramienen", "Een vast referentiekader voor uw uitvoerders op de bouwplaats."],
-          ["Detailmaatvoering", "Gevellijnen, kolommen en ankers, verdieping na verdieping."],
-        ],
-      },
-      {
-        title: "Waar wij uitzetten",
-        list: [
-          "Woningbouw en utiliteitsbouw",
-          "Wegen, kunstwerken en infrastructuur",
-          "Grondwerk, taluds en geluidswallen",
-          "Industriële installaties en fundaties",
-        ],
-      },
+    metaDescription: "Nauwkeurige maatvoering en uitzetwerk voor aannemers: rooilijnen, palenplan, stramienen en detailmaatvoering. Intergeo landmeetkunde uit De Meern, sinds 1972.",
+    what: "Wij brengen de maten van de tekening over naar het terrein. Zo komt alles op de juiste plek en hoogte: van de eerste rooilijn tot de laatste kolom.",
+    when: [
+      "U start met de bouw van een woning, gebouw of kunstwerk",
+      "U legt een weg, baan of ander infrawerk aan",
+      "U wilt grondwerk, taluds of geluidswallen op maat uitzetten",
+    ],
+    result: [
+      "Uitgezette punten en lijnen op de bouwplaats",
+      "Gecontroleerde en vastgelegde uitgangspunten",
+      "Meetgegevens digitaal, in het formaat dat u gebruikt",
+    ],
+    steps: [
+      ["Rooilijnen verklikken", "Uitgangspunten vastleggen buiten de bouwput, zodat het heien ze niet verstoort."],
+      ["Palenplan uitzetten", "Elke paal op de juiste plek, gecontroleerd en vastgelegd."],
+      ["Stramienen", "Een vast referentiekader voor uw uitvoerders."],
+      ["Detailmaatvoering", "Gevellijnen, kolommen en ankers, verdieping na verdieping."],
     ],
     projects: ["circuit-zandvoort", "six-flags-holland"],
     image: "sixflags-maatvoering.jpg",
@@ -56,27 +53,25 @@ export const SERVICES = [
     slug: "deformatiemetingen",
     tone: "blue",
     name: "Deformatie- en zettingsmetingen",
-    short: "Bewaking van bebouwing en infrastructuur tijdens bouw en grondverzet.",
+    summary: "Zien of gebouwen en wegen in de buurt van uw bouwproject bewegen.",
     metaTitle: "Deformatie- en zettingsmetingen tijdens de bouw",
     metaDescription: "Zettingsmetingen en deformatiemonitoring van gebouwen, wegen en spoor tijdens bouwwerkzaamheden. Nulmeting en herhalingsmetingen door Intergeo landmeetkunde.",
-    intro: "In Nederland is de grond niet overal even stabiel. Bij bouwwerk en groot grondverzet kunnen gebouwen, wegen en leidingen in de omgeving zakken of verschuiven. Met deformatiemetingen ziet u dat op tijd, zodat u kunt ingrijpen voordat er schade ontstaat.",
-    sections: [
-      {
-        title: "Zo pakken wij het aan",
-        steps: [
-          ["Meetpunten plaatsen", "In gevels, viaducten, wegen en spoorrails, afhankelijk van het risico per object."],
-          ["Nulmeting", "Voor de start leggen wij de hoogte, en waar nodig de X/Y-positie, van elk meetpunt vast."],
-          ["Herhalingsmetingen", "Tijdens het werk meten wij met vaste regelmaat opnieuw."],
-          ["Rapportage", "U ziet per meetpunt hoeveel het is bewogen, zodat u op tijd kunt bijsturen."],
-        ],
-      },
-      {
-        title: "Waarmee wij meten",
-        list: [
-          "Digitaal waterpasinstrument voor zakkingen",
-          "Nauwkeurig total station voor horizontale verplaatsingen",
-        ],
-      },
+    what: "Bij bouwwerk en grondverzet kunnen gebouwen, wegen en spoor in de omgeving zakken of verschuiven. Wij meten dat vanaf het begin, zodat u op tijd kunt ingrijpen.",
+    when: [
+      "U bouwt of graaft naast bestaande gebouwen of infrastructuur",
+      "U wilt schade aan de omgeving voorkomen of kunnen aantonen",
+      "Een gemeente of opdrachtgever vraagt om monitoring",
+    ],
+    result: [
+      "Een nulmeting van alle meetpunten vóór de start",
+      "Herhalingsmetingen met vaste regelmaat",
+      "Per meetpunt een overzicht van hoeveel het is bewogen",
+    ],
+    steps: [
+      ["Meetpunten plaatsen", "In gevels, viaducten, wegen of spoorrails."],
+      ["Nulmeting", "De beginsituatie vastleggen in hoogte, en waar nodig in X/Y."],
+      ["Herhalingsmetingen", "Tijdens het werk regelmatig opnieuw meten."],
+      ["Rapportage", "U ziet direct of er actie nodig is."],
     ],
     projects: ["betuweroute"],
     image: "betuweroute-kaart.gif",
@@ -87,25 +82,21 @@ export const SERVICES = [
     slug: "detailmetingen",
     tone: "green",
     name: "Detailmetingen",
-    short: "De bestaande situatie ingemeten, van een klein perceel tot een complete stadskaart.",
+    summary: "De bestaande situatie ingemeten als basis voor uw ontwerp.",
     metaTitle: "Detailmetingen en inmeten van terreinen",
     metaDescription: "Detailmetingen van terreinen, percelen en bestaande situaties als basis voor ontwerp en bouw. Digitaal aangeleverd in uw formaat. Intergeo landmeetkunde, De Meern.",
-    intro: "Een goede detailmeting is het startpunt voor elk ontwerp. Wij meten wat voor uw project van belang is, van een klein terrein tot een complete stadskaart, desgewenst met hoogtes.",
-    sections: [
-      {
-        title: "Waarvoor u een detailmeting gebruikt",
-        list: [
-          "Als ondergrond voor het ontwerp van een bouw- of infraproject",
-          "Om de bestaande situatie vast te leggen",
-          "Voor revisie: wat is er werkelijk gebouwd of aangelegd",
-        ],
-      },
-      {
-        title: "Wat u van ons krijgt",
-        text: "U ontvangt de meetgegevens analoog of digitaal, in het uitwisselingsformaat dat aansluit op uw software.",
-      },
+    what: "Wij meten een terrein in met alles wat voor uw project van belang is: gebouwen, wegen, bomen, putten en desgewenst hoogtes. Van een klein perceel tot een complete stadskaart.",
+    when: [
+      "U begint aan een ontwerp en heeft een betrouwbare ondergrond nodig",
+      "U wilt de bestaande situatie vastleggen",
+      "U wilt na afloop weten wat er werkelijk is gebouwd (revisie)",
     ],
-    projects: ["six-flags-holland", "bodemsanering-kralingen"],
+    result: [
+      "Een digitale tekening van het terrein",
+      "Desgewenst met hoogtes",
+      "Aangeleverd in het formaat dat aansluit op uw software",
+    ],
+    projects: ["bodemsanering-kralingen", "six-flags-holland"],
     image: "bodemsanering-kralingen.jpg",
     imageAlt: "Bouwterrein van de bodemsanering in Kralingen",
   },
@@ -113,20 +104,19 @@ export const SERVICES = [
     slug: "waterpassingen",
     tone: "blue",
     name: "Waterpassingen",
-    short: "Nauwkeurige hoogtebepaling ten opzichte van NAP.",
+    summary: "Nauwkeurige hoogtes ten opzichte van NAP.",
     metaTitle: "Waterpassingen en hoogtemetingen ten opzichte van NAP",
     metaDescription: "Nauwkeurige waterpassingen en hoogtemetingen ten opzichte van NAP met een digitaal waterpasinstrument. Voor bouw, infra en waterbeheer. Intergeo landmeetkunde.",
-    intro: "Voor bijna elk project moet u weten op welke hoogte u bouwt. Wij bepalen die hoogte nauwkeurig met een digitaal waterpasinstrument: snel, betrouwbaar en goed controleerbaar.",
-    sections: [
-      {
-        title: "Toepassingen",
-        list: [
-          "Peilmaten en vloerpeilen voor de bouw",
-          "Hoogtes van terreinen, wegen en kunstwerken",
-          "Koppeling van meetinstrumenten aan NAP",
-          "Zettingsmetingen tijdens de bouw",
-        ],
-      },
+    what: "Met een digitaal waterpasinstrument bepalen wij nauwkeurig de hoogte van een punt, vloer of terrein ten opzichte van NAP. Snel, betrouwbaar en goed controleerbaar.",
+    when: [
+      "U heeft een peilmaat of vloerpeil nodig voor de bouw",
+      "U wilt hoogtes van een terrein, weg of kunstwerk weten",
+      "Een meetinstrument moet aan NAP gekoppeld worden",
+    ],
+    result: [
+      "Hoogtes ten opzichte van NAP",
+      "Vastgelegde hoogtemerken op locatie",
+      "Een overzichtelijk meetrapport",
     ],
     projects: ["waterwingebied-berkheide"],
     image: "waterpassing-berkheide.jpg",
@@ -136,20 +126,19 @@ export const SERVICES = [
     slug: "dtm-metingen",
     tone: "green",
     name: "DTM-metingen",
-    short: "Terreinen in 3D in kaart, met hoogtelijnen, profielen en volumes.",
+    summary: "Een terrein in 3D, met hoogtelijnen en volumes.",
     metaTitle: "DTM-metingen, hoogtelijnen en volumeberekeningen",
     metaDescription: "DTM-metingen: een digitaal terreinmodel in 3D met hoogtelijnen, profielen en volumeberekeningen voor grondverzet en landschapsontwerp. Intergeo landmeetkunde.",
-    intro: "Met een DTM (digitaal terreinmodel) brengen wij een terrein in 3D in kaart. Elk meetpunt wordt in hoogte en positie ingemeten. Zo ziet u precies hoe het terrein ligt.",
-    sections: [
-      {
-        title: "Wat u ermee kunt",
-        list: [
-          "Hoogtelijnen en dwarsprofielen",
-          "Volumeberekeningen voor grondverzet",
-          "Een betrouwbare ondergrond voor (landschaps)architecten",
-          "Ontgravingen en ophogingen bewaken tijdens het werk",
-        ],
-      },
+    what: "Een DTM (digitaal terreinmodel) is een 3D-model van het terrein. Wij meten daarvoor punten in hoogte en positie in en berekenen daaruit wat u nodig heeft.",
+    when: [
+      "U wilt weten hoeveel grond er af of aan moet",
+      "U ontwerpt een terrein, park of landschap",
+      "U wilt ontgravingen of ophogingen controleren",
+    ],
+    result: [
+      "Een 3D-terreinmodel",
+      "Hoogtelijnen en dwarsprofielen",
+      "Volumeberekeningen voor grondverzet",
     ],
     projects: ["bodemsanering-kralingen"],
     image: "dtm-model.gif",
@@ -160,24 +149,19 @@ export const SERVICES = [
     slug: "industriele-metingen",
     tone: "plum",
     name: "Industriële metingen",
-    short: "Kraanbanen, railbanen, rollenbanen en machines gecontroleerd en uitgezet.",
+    summary: "Kraanbanen, railbanen en machines nagemeten en uitgezet.",
     metaTitle: "Industriële metingen van kraanbanen en installaties",
     metaDescription: "Industriële metingen: controle van kraanbanen, railbanen, rollenbanen en machines, en maatvoering van nieuwe installaties. Intergeo landmeetkunde, De Meern.",
-    intro: "De maatvoering van industriële installaties komt erg nauw. Ook bestaande installaties kunnen na verloop van tijd vervormen. Wij meten ze na en zetten nieuwe installaties nauwkeurig uit.",
-    sections: [
-      {
-        title: "Wat wij meten",
-        list: [
-          "Kraanbanen en bovenloopkranen",
-          "Railbanen en rollenbanen",
-          "Machines en fundaties",
-          "Maatvoering van nieuwe installaties",
-        ],
-      },
-      {
-        title: "Waarom",
-        text: "Een meting laat zien of een baan recht en op de juiste plek ligt. Zo vindt u de oorzaak van overmatige slijtage of ontsporing, of controleert u een nieuwe installatie voordat die in gebruik gaat.",
-      },
+    what: "Industriële installaties moeten heel precies liggen. Wij controleren of kraanbanen, railbanen en machines recht en op de juiste plek liggen, en zetten nieuwe installaties uit.",
+    when: [
+      "Een kraan of baan slijt te snel of ontspoort",
+      "U wilt een nieuwe installatie controleren voor ingebruikname",
+      "U plaatst nieuwe machines of fundaties",
+    ],
+    result: [
+      "Gemeten afwijkingen in rechtheid, hoogte en positie",
+      "Advies waar bijgesteld moet worden",
+      "Maatvoering voor nieuwe installaties",
     ],
     projects: ["kraanbaan-den-helder"],
     image: "kraanbaan-den-helder.jpg",
@@ -187,19 +171,19 @@ export const SERVICES = [
     slug: "speciale-metingen",
     tone: "ochre",
     name: "Speciale metingen",
-    short: "Lastige plek of ongewone vraag? Wij bedenken een meetopstelling die werkt.",
+    summary: "Een oplossing voor lastige plekken en ongewone meetvragen.",
     metaTitle: "Speciale metingen en meetopstellingen op maat",
     metaDescription: "Speciale landmeetkundige metingen op lastige locaties, zoals daken en installaties. Meetopstellingen op maat en one-man total station. Intergeo landmeetkunde.",
-    intro: "Je kunt het zo gek niet bedenken of het valt te meten. Als standaardapparatuur niet volstaat, ontwerpen wij een eigen meetopstelling of kiezen wij een andere meetmethode.",
-    sections: [
-      {
-        title: "Voorbeelden",
-        list: [
-          "Platte daken inmeten met een one-man total station op afstandsbediening",
-          "Eigen ministatieven en vaste opstellingen op kraanbanen",
-          "Metingen op instabiele of moeilijk bereikbare ondergrond",
-        ],
-      },
+    what: "Soms volstaat standaardapparatuur niet. Dan bedenken wij een eigen meetopstelling of een andere meetmethode, zodat de meting toch nauwkeurig is.",
+    when: [
+      "De plek is moeilijk bereikbaar of instabiel, zoals een plat dak",
+      "Een gewone opstelling geeft geen betrouwbaar resultaat",
+      "U heeft een meetvraag die niet in een standaardhokje past",
+    ],
+    result: [
+      "Advies over de beste meetmethode",
+      "Een meetopstelling op maat",
+      "Betrouwbare meetresultaten en rapportage",
     ],
     projects: ["daken-bouwmarkten", "kraanbaan-den-helder"],
     image: "one-man-station-dak.jpg",
