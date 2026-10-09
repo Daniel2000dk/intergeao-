@@ -434,7 +434,7 @@ page({
     </section>
 
     <section class="section section-tint">
-      <div class="wrap stack">
+      <div class="wrap stack stack-center">
         <h2>Zo loopt de maatvoering van een bouwproject</h2>
         <ol class="steps steps-row">
           <li><span class="step-n">1</span><div><h3>Rooilijnen verklikken</h3><p>Uitgangspunten vastleggen buiten de bouwput, zodat het heien ze niet verstoort.</p></div></li>
@@ -536,47 +536,71 @@ ${ctaBand()}`,
 });
 
 /* ---------- Werken bij ---------- */
+const perks = `<ul class="checks">
+            <li>Veel afwisseling in het werk</li>
+            <li>Informele werksfeer</li>
+            <li>Training en opleidingsmogelijkheden</li>
+            <li>Uitstekende secundaire arbeidsvoorwaarden</li>
+          </ul>`;
+const V = SITE.vacature;
 page({
   path: "/werken-bij",
   file: "werken-bij.html",
-  title: "Vacature maatvoerder / landmeter",
-  description: "Werken bij Intergeo landmeetkunde in De Meern. Wij zoeken een maatvoerder / landmeter voor 32 tot 40 uur per week. Veel afwisseling en een informele werksfeer.",
+  title: V.open ? `Vacature ${V.title.toLowerCase()}` : "Werken bij Intergeo",
+  description: V.open
+    ? `Werken bij Intergeo landmeetkunde in De Meern. Wij zoeken een ${V.title.toLowerCase()} voor ${V.hours}. Veel afwisseling en een informele werksfeer.`
+    : "Werken bij Intergeo landmeetkunde in De Meern. Veel afwisseling, een informele werksfeer en goede opleidingsmogelijkheden. Open sollicitaties zijn welkom.",
   crumbs: [["Home", "/"], ["Werken bij", "/werken-bij"]],
-  schemas: [{
+  schemas: V.open ? [{
     "@context": "https://schema.org",
     "@type": "JobPosting",
-    title: "Maatvoerder / landmeter",
-    description: "<p>Maatvoerder / landmeter voor 32 tot 40 uur per week bij Intergeo landmeetkunde in De Meern. Veel afwisseling, informele werksfeer, training en opleidingsmogelijkheden en uitstekende secundaire arbeidsvoorwaarden.</p>",
-    datePosted: TODAY,
+    title: V.title,
+    description: `<p>${V.title} voor ${V.hours} bij Intergeo landmeetkunde in De Meern. Veel afwisseling, informele werksfeer, training en opleidingsmogelijkheden en uitstekende secundaire arbeidsvoorwaarden.</p>`,
+    datePosted: V.datePosted,
     employmentType: ["FULL_TIME", "PART_TIME"],
     hiringOrganization: { "@id": ORG_ID, name: SITE.name, sameAs: SITE.url },
     jobLocation: {
       "@type": "Place",
       address: { "@type": "PostalAddress", streetAddress: SITE.street, postalCode: SITE.postcode, addressLocality: SITE.city, addressCountry: "NL" },
     },
-  }],
-  body: `
+  }] : [],
+  body: V.open ? `
     <section class="page-head tone-ochre">
       <div class="wrap stack">
         <p class="eyebrow">Vacature</p>
-        <h1>Maatvoerder / landmeter</h1>
-        <p class="lead">32 tot 40 uur per week. Wisselende projecten, van bouwplaats tot fabriekshal, in een klein team waar je snel verantwoordelijkheid krijgt.</p>
+        <h1>${V.title}</h1>
+        <p class="lead">${V.hours[0].toUpperCase() + V.hours.slice(1)}. Wisselende projecten, van bouwplaats tot fabriekshal, in een klein team waar je snel verantwoordelijkheid krijgt.</p>
       </div>
     </section>
     <section class="section">
       <div class="wrap split">
         <div class="stack">
           <h2>Wat wij je bieden</h2>
-          <ul class="checks">
-            <li>Veel afwisseling in het werk</li>
-            <li>Informele werksfeer</li>
-            <li>Training en opleidingsmogelijkheden</li>
-            <li>Uitstekende secundaire arbeidsvoorwaarden</li>
-          </ul>
+          ${perks}
         </div>
         <div class="card quote-box tone-ochre">
           <h2 class="h-small">Solliciteren</h2>
-          <p>Stuur je cv en motivatie naar <a href="mailto:${SITE.email}?subject=Sollicitatie%20maatvoerder%20%2F%20landmeter">${SITE.email}</a>, of per post naar ${SITE.legalName}, ${SITE.street}, ${SITE.postcode} ${SITE.city}.</p>
+          <p>Stuur je cv en motivatie naar <a href="mailto:${SITE.email}?subject=${encodeURIComponent("Sollicitatie " + V.title)}">${SITE.email}</a>, of per post naar ${SITE.legalName}, ${SITE.street}, ${SITE.postcode} ${SITE.city}.</p>
+          <p class="small">Vragen? Bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a>.</p>
+        </div>
+      </div>
+    </section>` : `
+    <section class="page-head tone-ochre">
+      <div class="wrap stack">
+        <p class="eyebrow">Werken bij Intergeo</p>
+        <h1>Landmeter of maatvoerder worden?</h1>
+        <p class="lead">Wisselende projecten, van bouwplaats tot fabriekshal, in een klein team waar je snel verantwoordelijkheid krijgt.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap split">
+        <div class="stack">
+          <h2>Wat wij je bieden</h2>
+          ${perks}
+        </div>
+        <div class="card quote-box tone-ochre">
+          <h2 class="h-small">Open sollicitatie</h2>
+          <p>Op dit moment hebben wij geen openstaande vacatures. Een open sollicitatie is altijd welkom via <a href="mailto:${SITE.email}?subject=Open%20sollicitatie">${SITE.email}</a>.</p>
           <p class="small">Vragen? Bel <a href="tel:${SITE.phoneIntl}">${SITE.phone}</a>.</p>
         </div>
       </div>
@@ -643,6 +667,89 @@ page({
       </div>
     </section>`,
 });
+
+/* ---------- Doorverwijzingen van de oude site (intergeo.nl tot 2026) ---------- */
+const OLD_URLS = [
+  ["home/ho_home.html", "/"],
+  ["waar/waar_wie_intergeo.html", "/over-ons"],
+  ["waar/in_interview.html", "/over-ons"],
+  ["waar/waar_adres.html", "/contact"],
+  ["waar/waar_email.html", "/contact"],
+  ["waar/waar_route.html", "/contact"],
+  ["projecten/pr_betuweroute.html", "/projecten#betuweroute"],
+  ["projecten/pr_sixflags.html", "/projecten#six-flags-holland"],
+  ["projecten/pr_avant.html", "/projecten#daken-bouwmarkten"],
+  ["projecten/pr_zandvoort.html", "/projecten#circuit-zandvoort"],
+  ["diensten/di_detailmeting.html", "/diensten/detailmetingen"],
+  ["diensten/di_maatvoering.html", "/diensten/maatvoering"],
+  ["diensten/di_deformatiemetingen.html", "/diensten/deformatiemetingen"],
+  ["diensten/di_waterpassingen.html", "/diensten/waterpassingen"],
+  ["diensten/di_industrieel.html", "/diensten/industriele-metingen"],
+  ["diensten/di_speciaal.html", "/diensten/speciale-metingen"],
+  ["diensten/di_dtmmetingen.html", "/diensten/dtm-metingen"],
+  ["instrumenten/in_instrumenten.html", "/over-ons"],
+  ["instrumenten/in_richtlijnen.html", "/over-ons"],
+  ["vacatures/va_vacatures.html", "/werken-bij"],
+  ["archief/ar_foto's.html", "/projecten"],
+  ["archief/ar_foto%27s.html", "/projecten"],
+];
+const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// Apache (de meeste Nederlandse webhosters)
+const htaccess = `# Intergeo landmeetkunde - gegenereerd door scripts/build.mjs
+Options -MultiViews -Indexes
+DirectoryIndex index.html
+DirectorySlash Off
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Altijd via https. Zet de twee regels hieronder pas aan als het SSL-certificaat actief is.
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Oude adressen van de vorige website
+${OLD_URLS.filter(([o]) => !o.includes("%")).map(([o, n]) =>
+  `RewriteRule ^${reEsc(o).replace("'", ".?")}$ ${n} [R=301,L,NE]`).join("\n")}
+
+# /index.html en /map/index.html naar het korte adres
+RewriteCond %{THE_REQUEST} \\s/+(.*/)?index\\.html[\\s?]
+RewriteRule ^ /%1 [R=301,L]
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# /pagina.html naar /pagina
+RewriteCond %{THE_REQUEST} \\s/+([^?\\s]+)\\.html[\\s?]
+RewriteRule ^ /%1 [R=301,L]
+
+# /pagina serveert pagina.html, /diensten serveert diensten/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 7 days"
+ExpiresByType application/javascript "access plus 7 days"
+ExpiresByType text/javascript "access plus 7 days"
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType image/gif "access plus 30 days"
+ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml application/xml text/plain
+</IfModule>
+`;
+writeFileSync(join(ROOT, ".htaccess"), htaccess);
+
+// Netlify / Cloudflare Pages (alternatief voor Apache)
+writeFileSync(join(ROOT, "_redirects"),
+  OLD_URLS.map(([o, n]) => `/${o} ${n} 301`).join("\n") + "\n");
 
 /* ---------- sitemap.xml en robots.txt ---------- */
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

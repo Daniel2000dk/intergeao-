@@ -1,0 +1,39 @@
+@page { size: A4; margin: 18mm 18mm 20mm; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 10.5pt/1.55 "Segoe UI", Roboto, Arial, sans-serif;
+  color: #15262b;
+  background: #fff;
+}
+.doc { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
+@media print { .doc { padding: 0; max-width: none; } }
+header.doc-head {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  border-bottom: 3px solid #d9541a; padding-bottom: 10px; margin-bottom: 22px;
+}
+.doc-head .kind { font: 600 9pt/1 Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; color: #b0420f; }
+.doc-head .meta { text-align: right; font-size: 9pt; color: #4b5c60; }
+h1 { font-size: 20pt; line-height: 1.15; margin: 4px 0 0; }
+h2 { font-size: 12.5pt; margin: 22px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #d8dfdb; }
+h3 { font-size: 10.5pt; margin: 14px 0 4px; }
+p { margin: 0 0 8px; }
+ul, ol { margin: 0 0 8px; padding-left: 20px; }
+li { margin-bottom: 3px; }
+.address { margin-bottom: 18px; }
+table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid #d8dfdb; }
+th { font-size: 9pt; text-transform: uppercase; letter-spacing: .05em; color: #4b5c60; }
+td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+tr.total td { font-weight: 700; border-top: 2px solid #15262b; border-bottom: 0; }
+.fill { background: #fcebe1; padding: 0 4px; border-radius: 3px; }
+.note { background: #f3f5f2; border-left: 3px solid #1f6391; padding: 8px 12px; margin: 10px 0; font-size: 9.5pt; }
+.check { list-style: none; padding-left: 0; }
+.check li { padding-left: 24px; position: relative; margin-bottom: 7px; }
+.check li::before { content: ""; position: absolute; left: 0; top: 3px; width: 12px; height: 12px; border: 1.5px solid #15262b; border-radius: 2px; }
+.answer { display: block; border-bottom: 1px dotted #9aa8a5; height: 18px; margin-top: 2px; }
+.sign { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+.sign div { border-top: 1px solid #15262b; padding-top: 6px; font-size: 9pt; color: #4b5c60; min-height: 70px; }
+.small { font-size: 9pt; color: #4b5c60; }
+h2, h3 { break-after: avoid; }
+li, tr, .note { break-inside: avoid; }

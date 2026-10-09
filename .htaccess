@@ -1,0 +1,67 @@
+# Intergeo landmeetkunde - gegenereerd door scripts/build.mjs
+Options -MultiViews -Indexes
+DirectoryIndex index.html
+DirectorySlash Off
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Altijd via https. Zet de twee regels hieronder pas aan als het SSL-certificaat actief is.
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Oude adressen van de vorige website
+RewriteRule ^home/ho_home\.html$ / [R=301,L,NE]
+RewriteRule ^waar/waar_wie_intergeo\.html$ /over-ons [R=301,L,NE]
+RewriteRule ^waar/in_interview\.html$ /over-ons [R=301,L,NE]
+RewriteRule ^waar/waar_adres\.html$ /contact [R=301,L,NE]
+RewriteRule ^waar/waar_email\.html$ /contact [R=301,L,NE]
+RewriteRule ^waar/waar_route\.html$ /contact [R=301,L,NE]
+RewriteRule ^projecten/pr_betuweroute\.html$ /projecten#betuweroute [R=301,L,NE]
+RewriteRule ^projecten/pr_sixflags\.html$ /projecten#six-flags-holland [R=301,L,NE]
+RewriteRule ^projecten/pr_avant\.html$ /projecten#daken-bouwmarkten [R=301,L,NE]
+RewriteRule ^projecten/pr_zandvoort\.html$ /projecten#circuit-zandvoort [R=301,L,NE]
+RewriteRule ^diensten/di_detailmeting\.html$ /diensten/detailmetingen [R=301,L,NE]
+RewriteRule ^diensten/di_maatvoering\.html$ /diensten/maatvoering [R=301,L,NE]
+RewriteRule ^diensten/di_deformatiemetingen\.html$ /diensten/deformatiemetingen [R=301,L,NE]
+RewriteRule ^diensten/di_waterpassingen\.html$ /diensten/waterpassingen [R=301,L,NE]
+RewriteRule ^diensten/di_industrieel\.html$ /diensten/industriele-metingen [R=301,L,NE]
+RewriteRule ^diensten/di_speciaal\.html$ /diensten/speciale-metingen [R=301,L,NE]
+RewriteRule ^diensten/di_dtmmetingen\.html$ /diensten/dtm-metingen [R=301,L,NE]
+RewriteRule ^instrumenten/in_instrumenten\.html$ /over-ons [R=301,L,NE]
+RewriteRule ^instrumenten/in_richtlijnen\.html$ /over-ons [R=301,L,NE]
+RewriteRule ^vacatures/va_vacatures\.html$ /werken-bij [R=301,L,NE]
+RewriteRule ^archief/ar_foto.?s\.html$ /projecten [R=301,L,NE]
+
+# /index.html en /map/index.html naar het korte adres
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# /pagina.html naar /pagina
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?]
+RewriteRule ^ /%1 [R=301,L]
+
+# /pagina serveert pagina.html, /diensten serveert diensten/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ $1.html [L]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 7 days"
+ExpiresByType application/javascript "access plus 7 days"
+ExpiresByType text/javascript "access plus 7 days"
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType image/gif "access plus 30 days"
+ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml application/xml text/plain
+</IfModule>

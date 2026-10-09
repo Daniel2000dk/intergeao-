@@ -16,6 +16,13 @@ export const SITE = {
   founded: "1972",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Gessel+34+3454+MZ+De+Meern",
   ogImage: "/assets/img/sixflags-maatvoering.jpg",
+  // Vacature: zet open op false als er geen vacature is; de pagina toont dan "open sollicitatie welkom".
+  vacature: {
+    open: true,
+    title: "Maatvoerder / landmeter",
+    hours: "32 tot 40 uur per week",
+    datePosted: "2026-10-09",
+  },
 };
 
 // Elke dienst heeft dezelfde opbouw: summary (één regel), what, when[], result[], optioneel steps[].

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Overdrachtsdocument website Intergeo</title>
+<link rel="stylesheet" href="doc.css">
+</head>
+<body>
+<div class="doc">
+  <header class="doc-head">
+    <div>
+      <div class="kind">Overdrachtsdocument</div>
+      <h1>Website intergeo.nl</h1>
+    </div>
+    <div class="meta">Opgeleverd op <span class="fill">[datum]</span><br>door <span class="fill">[Jouw naam]</span></div>
+  </header>
+
+  <p>Dit document beschrijft wat er is opgeleverd en hoe de website werkt. Bewaar het bij uw administratie.
+  Met deze overdracht is de opdracht afgerond. De website en alle bestanden zijn van Intergeo BV.</p>
+
+  <h2>Wat is opgeleverd</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>Website</strong></td><td>Live op <span class="fill">[https://intergeo.nl]</span></td></tr>
+      <tr><td><strong>intergeo-website.zip</strong></td><td>Alle bestanden die online staan. Hiermee kan de website altijd opnieuw worden geplaatst.</td></tr>
+      <tr><td><strong>intergeo-broncode.zip</strong></td><td>De bronbestanden voor een webbouwer, inclusief alle teksten in één bestand.</td></tr>
+      <tr><td><strong>Back-up oude website</strong></td><td>De vorige website zoals die tot de livegang online stond.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Waar staat wat</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>Hosting</strong></td><td>VIP.nl, Plesk-beheerpaneel. Op naam van Intergeo, zoals voorheen.</td></tr>
+      <tr><td><strong>Domeinnaam</strong></td><td>intergeo.nl, ongewijzigd. De DNS-instellingen zijn niet aangepast.</td></tr>
+      <tr><td><strong>E-mail</strong></td><td>info@intergeo.nl via Microsoft 365. Hier is niets aan veranderd.</td></tr>
+      <tr><td><strong>Beveiliging (https)</strong></td><td><span class="fill">[Actief via Let's Encrypt in Plesk / niet actief]</span></td></tr>
+    </tbody>
+  </table>
+  <div class="note"><strong>Advies:</strong> wijzig na de oplevering het wachtwoord van het Plesk-beheerpaneel, omdat ik daar tijdelijk toegang toe had.</div>
+
+  <h2>Hoe de website werkt</h2>
+  <ul>
+    <li>De website bestaat uit vaste pagina's (HTML). Er is geen database, geen beheersysteem en er zijn geen plug-ins. Er hoeft dus niets bijgewerkt te worden en er is weinig wat kan breken.</li>
+    <li>De vacaturepagina toont <span class="fill">[de vacature maatvoerder / landmeter / "open sollicitatie welkom"]</span>.</li>
+    <li>Het contactformulier opent het e-mailprogramma van de bezoeker met een ingevuld bericht aan info@intergeo.nl. Er is geen formulierdienst die kan uitvallen.</li>
+    <li>Oude adressen van de vorige website worden automatisch doorgestuurd naar de nieuwe pagina's.</li>
+    <li>Google vindt de pagina's vanzelf via de sitemap: intergeo.nl/sitemap.xml.</li>
+  </ul>
+
+  <h2>Later iets laten aanpassen</h2>
+  <p>Na deze oplevering verzorg ik geen wijzigingen meer. Wilt u later iets aanpassen, dan kan elke webbouwer dat doen:</p>
+  <ul>
+    <li><strong>Kleine tekstwijziging:</strong> het betreffende HTML-bestand aanpassen en opnieuw uploaden.</li>
+    <li><strong>Grotere wijziging</strong> (nieuwe dienst, nieuw project, vacature aan of uit): alle teksten staan in <code>scripts/content.mjs</code> in de broncode. Na het aanpassen maakt het commando <code>node scripts/build.mjs</code> alle pagina's opnieuw aan. Een korte uitleg staat in <code>CLAUDE.md</code> in de broncode.</li>
+  </ul>
+
+  <h2>Optioneel, door uzelf</h2>
+  <ul>
+    <li>Meld de website aan bij Google Search Console en stuur daar de sitemap in. Dat versnelt het vindbaar worden.</li>
+    <li>Maak of claim een Google Bedrijfsprofiel voor Intergeo in De Meern.</li>
+  </ul>
+
+  <h2>Akkoord oplevering</h2>
+  <p>Hierbij bevestigen beide partijen dat de website is opgeleverd en de opdracht is afgerond.</p>
+  <div class="sign">
+    <div>Intergeo BV<br>Naam, datum en handtekening</div>
+    <div><span class="fill">[Jouw naam]</span><br>Naam, datum en handtekening</div>
+  </div>
+</div>
+</body>
+</html>
